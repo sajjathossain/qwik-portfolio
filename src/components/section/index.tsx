@@ -16,7 +16,7 @@ export const Section = component$((props: Props) => {
     <section
       class={cn(
         'w-full',
-        ' h-full',
+        'h-full',
         'py-4',
         'px-4',
         'md:px-0',
