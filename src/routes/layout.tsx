@@ -2,6 +2,7 @@ import { component$, Slot } from '@builder.io/qwik';
 import type { RequestHandler } from '@builder.io/qwik-city';
 import { Cursor, PageScrollDistance } from '~/components';
 import { SideNavbar } from '~/integrations/react';
+import { QwikTopNavbar } from '~/integrations/react/top-navbar';
 
 export const onGet: RequestHandler = async (/* { cacheControl } */) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -21,7 +22,7 @@ export default component$(() => {
     <>
       <PageScrollDistance />
       <Cursor />
-      {/* <TopNavbar client:idle /> */}
+      <QwikTopNavbar />
       <SideNavbar />
       <main class="relative flex  w-full flex-col items-center justify-center px-1 md:px-0">
         <Slot />
