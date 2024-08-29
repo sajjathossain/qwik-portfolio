@@ -8,8 +8,8 @@ import { Header } from '~/components/header';
 
 export const ExperiencesSection = component$(() => {
   return (
-    <Container classes="relative h-screen">
-      <Section classes="h-full" id="experiences">
+    <Container classes="h-full">
+      <Section classes="h-auto" id="experiences">
         <Header title="Experiences" />
         <div class="flex h-full w-full flex-col">
           {experiences.map((experience, idx) => (
