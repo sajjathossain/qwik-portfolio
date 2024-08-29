@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   darkMode: ['class'],
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: [
+    './routes/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}'
+  ],
   prefix: '',
   theme: {
-    fontFamily: {
-      'fira-sans': ['Fira Sans', 'sans-serif'],
-      poppins: ['Poppins', 'sans-serif']
-    },
     container: {
       center: true,
       padding: '2rem',
@@ -72,19 +74,6 @@ export default {
       }
     }
   },
-  plugins: [
-    require('tailwindcss-animate'),
-    require('@tailwindcss/typography'),
-    ({ addUtilities }) => {
-      addUtilities({
-        '.no-scrollbar::-webkit-scrollbar': {
-          display: 'none'
-        },
-        '.no-scrollbar': {
-          '-ms-overflow-style': 'none',
-          'scrollbar-width': 'none'
-        }
-      });
-    }
-  ]
+  plugins: [require('tailwindcss-animate')]
 };
+
