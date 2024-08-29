@@ -18,16 +18,14 @@ export const onGet: RequestHandler = async (/* { cacheControl } */) => {
 
 export default component$(() => {
   return (
-    <div class="font-poppins no-scrollbar dark w-screen snap-y scroll-smooth">
-      <div class="flex h-screen w-full bg-gray-200 text-gray-800 dark:bg-slate-900 dark:text-gray-200">
-        <PageScrollDistance />
-        <Cursor />
-        {/* <TopNavbar client:idle /> */}
-        <SideNavbar />
-        <main class="relative flex w-full flex-col items-center justify-center px-1 md:px-0">
-          <Slot />
-        </main>
-      </div>
-    </div>
+    <>
+      <PageScrollDistance />
+      <Cursor />
+      {/* <TopNavbar client:idle /> */}
+      <SideNavbar />
+      <main class="flex flex-col items-center">
+        <Slot />
+      </main>
+    </>
   );
 });
