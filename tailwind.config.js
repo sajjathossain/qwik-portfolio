@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const plugin = require('tailwindcss/plugin');
+
+export default {
   darkMode: ['class'],
-  content: [
-    './routes/**/*.{ts,tsx}',
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}'
-  ],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   prefix: '',
   theme: {
+    fontFamily: {
+      'fira-sans': ['Fira Sans', 'sans-serif'],
+      poppins: ['Poppins', 'sans-serif']
+    },
     container: {
       center: true,
       padding: '2rem',
@@ -74,6 +74,25 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+    plugin(function({ addUtilities, theme }) {
+      addUtilities({
+        '.show-guidelines': {
+          height: 'auto',
+          outlineStyle: 'solid',
+          outlineWidth: '1px',
+          outlineColor: theme('colors.red.500')
+        },
+        '.no-scrollbar::-webkit-scrollbar': {
+          display: 'none'
+        },
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none'
+        }
+      });
+    })
+  ]
 };
-
