@@ -10,7 +10,7 @@ export const Container = component$((props: Props) => {
   const { classes } = props;
 
   return (
-    <div class={cn('w-full', 'md:w-3/4', 'lg:w-3/6', 'h-screen', classes)}>
+    <div class={cn('flex h-screen w-full md:w-3/4 lg:w-3/6', classes)}>
       <Slot />
     </div>
   );
