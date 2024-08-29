@@ -7,7 +7,7 @@ import { navItems } from '@/data/nav-items';
 import { activeSectionAtom } from '@/store';
 import { useStore } from '@nanostores/react';
 import { qwikify$ } from '@builder.io/qwik-react';
-import { useActiveSection } from '../hooks/get-active-section';
+import { useActiveSection } from '~/integrations/react/hooks';
 
 type TProps = {
   className?: ClassNameValue;
