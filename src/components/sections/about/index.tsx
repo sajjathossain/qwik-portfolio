@@ -1,9 +1,9 @@
 import { getPublicAssetPath } from '@/lib/get-asset-path';
 import { component$ } from '@builder.io/qwik';
-import { Reveal } from '../animations/reveal';
-import { QwikTypewriter } from '../animations';
-import { Container } from '../container';
-import { Section } from '../section';
+import { QwikTypewriter } from '~/components/animations';
+import { Reveal } from '~/components/animations/reveal';
+import { Container } from '~/components/container';
+import { Section } from '~/components/section';
 
 const profilePicture = getPublicAssetPath({
   filename: 'profile',
@@ -18,7 +18,7 @@ const descriptions = [
 export const AboutSection = component$(() => {
   return (
     <Container>
-      <Section classes={'h-screen'} id="about">
+      <Section id="about">
         <div class="my-auto flex h-full w-full flex-col-reverse items-center justify-center gap-12 md:flex-row">
           <div class="grow-cursor flex w-full flex-col items-center justify-between gap-2 md:items-start md:gap-0">
             <QwikTypewriter />
