@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import type { TSkill } from '@/data/skills';
-import { useEffect, useRef, type FC } from 'react';
+import { type FC } from 'react';
 import styled from '@emotion/styled';
 import { qwikify$ } from '@builder.io/qwik-react';
 
@@ -32,27 +32,9 @@ type Props = {
 
 export const SkillsRow: FC<Props> = (props) => {
   const { skills, direction = 'right-to-left' } = props;
-  const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const content = Array.from(element.children);
-
-    content.forEach((item) => {
-      const duplicate = item.cloneNode(true) as HTMLDivElement;
-      duplicate.setAttribute('aria-hidden', 'true');
-      element.appendChild(duplicate);
-    });
-  }, []);
-
-  return (
-    <SajjatHossainSkills
-      className="grow-cursor flex h-fit w-max gap-[5vw] whitespace-nowrap text-[6vh] md:text-[5vw]"
-      ref={ref}
-      data-direction={direction}
-    >
+  const RenderSkills = () => (
+    <>
       {skills.map((skill) => {
         const Icon = skill.icon;
 
@@ -66,6 +48,16 @@ export const SkillsRow: FC<Props> = (props) => {
           </span>
         );
       })}
+    </>
+  );
+
+  return (
+    <SajjatHossainSkills
+      className="grow-cursor flex h-fit w-max gap-[5vw] whitespace-nowrap text-[6vh] md:text-[5vw]"
+      data-direction={direction}
+    >
+      <RenderSkills />
+      <RenderSkills />
     </SajjatHossainSkills>
   );
 };
