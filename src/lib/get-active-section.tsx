@@ -30,3 +30,15 @@ export const useActiveSection = () => {
     };
   });
 };
+
+export const getActiveSection = ({ elements }: { elements: NodeListOf<Element> }) => {
+  for (const ref of elements) {
+    const isInView = ScrollTrigger.isInViewport(ref);
+
+    if (isInView) {
+      const activeId = ref.getAttribute('data-active-id') as TActiveSection;
+      activeSectionAtom.set(activeId);
+    }
+  }
+
+};
