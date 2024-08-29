@@ -45,12 +45,12 @@ export const Experience = component$((props: Props) => {
         return;
 
       const commonScrollTriggerProperties: gsap.DOMTarget | ScrollTrigger.Vars =
-      {
-        trigger: experienceRef.value,
-        start: 'clamp(top 85% bottom 75%)',
-        end: 'clamp(top 30% bottom 75%)',
-        scrub: true
-      };
+        {
+          trigger: experienceRef.value,
+          start: 'clamp(top 85% bottom 75%)',
+          end: 'clamp(top 30% bottom 75%)',
+          scrub: true
+        };
 
       const barTL = gsap.timeline({
         scrollTrigger: commonScrollTriggerProperties
@@ -93,7 +93,7 @@ export const Experience = component$((props: Props) => {
           <div
             ref={experienceProgressRef}
             class={`relative h-0 w-full rounded-md bg-blue-600 brightness-125 dark:bg-emerald-500`}
-          ></div>
+          />
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -113,23 +113,23 @@ export const Experience = component$((props: Props) => {
         </div>
         <div
           ref={experienceInfomationsRef}
-          class={`flex flex-col gap-1 ${!isLast && 'pb-[6vh]'} w-full text-gray-700 dark:text-gray-300`}
+          class={`flex flex-col gap-1 ${!isLast && 'pb-[6vh]'} w-full text-gray-400`}
         >
-          <h1 class="mt-[5px] text-xl text-blue-600 dark:text-gray-300 md:text-2xl">
+          <h1 class="mt-[5px] text-xl text-emerald-500 md:text-2xl">
             {company}
           </h1>
-          <h3 class="w-fit border-b-2 border-dotted text-sm text-gray-500 dark:text-gray-400">
+          <h3 class="text-md w-fit border-b-2 border-dotted text-emerald-700 brightness-110">
             {position}
           </h3>
-          <div class="flex gap-2">
-            <p class="text-sm text-gray-500 dark:text-gray-400">{duration}</p>
-            <p class="border-l-2 pl-2 text-sm text-gray-500 dark:text-gray-400">
-              {location}
-            </p>
+          <div class="flex flex-col gap-1 text-xs md:flex-row md:gap-2 md:text-base">
+            <p>{duration}</p>
+            <p class="md:border-l-2 md:pl-2">{location}</p>
           </div>
           <div>
-            <p class="mb-2 text-base font-bold">Responsibilities:</p>
-            <ul class="w-full list-inside list-disc text-gray-500 dark:text-gray-400">
+            <p class="mb-2 w-fit border-b-2 border-dotted text-base font-bold text-emerald-700 brightness-110">
+              Responsibilities:
+            </p>
+            <ul class="w-full list-inside list-disc">
               {responsibilities.map((responsibility) => (
                 <li key={responsibility} class="text-sm md:text-base">
                   {responsibility}
@@ -138,8 +138,10 @@ export const Experience = component$((props: Props) => {
             </ul>
           </div>
           <div class="mb-3 w-full">
-            <p class="mb-2 text-base font-bold">Technologies:</p>
-            <ul class="grid w-full list-inside list-disc grid-cols-2 gap-3 text-gray-500 dark:text-gray-400 md:grid-cols-3 md:gap-2">
+            <p class="mb-2 w-fit border-b-2 border-dotted text-base font-bold text-emerald-700 brightness-110">
+              Technologies:
+            </p>
+            <ul class="grid w-full list-inside list-disc grid-cols-2 gap-3  md:grid-cols-3 md:gap-2">
               {technologies.map((technology) => (
                 <li key={technology} class="text-sm md:text-base">
                   {technology}
