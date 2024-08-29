@@ -92,7 +92,7 @@ export const Experience = component$((props: Props) => {
         >
           <div
             ref={experienceProgressRef}
-            class={`relative h-full w-full rounded-md bg-blue-600 brightness-125 dark:bg-emerald-500`}
+            class={`relative h-0 w-full rounded-md bg-blue-600 brightness-125 dark:bg-emerald-500`}
           ></div>
 
           <svg
