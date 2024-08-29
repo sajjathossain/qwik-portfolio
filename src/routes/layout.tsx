@@ -17,8 +17,8 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export default component$(() => {
   return (
-    <div class="dark w-screen snap-y scroll-smooth font-poppins no-scrollbar">
-      <div class="flex h-screen w-full bg-gray-200 text-gray-800  dark:bg-slate-900 dark:text-gray-200">
+    <div class="font-poppins no-scrollbar dark w-screen snap-y scroll-smooth">
+      <div class="flex h-screen w-full bg-gray-200 text-gray-800 dark:bg-slate-900 dark:text-gray-200">
         <PageScrollDistance />
         <Cursor />
         {/* <TopNavbar client:idle /> */}
