@@ -31,7 +31,7 @@ export default component$(() => {
       </head>
       <body
         lang="en"
-        class="no-scrollbar font-poppins dark w-screen scroll-smooth bg-slate-900"
+        class="dark w-auto scroll-smooth bg-slate-900 font-poppins no-scrollbar"
       >
         <RouterOutlet />
         {!isDev && <ServiceWorkerRegister />}
