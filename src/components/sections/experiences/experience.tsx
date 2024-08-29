@@ -45,12 +45,12 @@ export const Experience = component$((props: Props) => {
         return;
 
       const commonScrollTriggerProperties: gsap.DOMTarget | ScrollTrigger.Vars =
-        {
-          trigger: experienceRef.value,
-          start: 'clamp(top 85% bottom 75%)',
-          end: 'clamp(top 30% bottom 75%)',
-          scrub: true
-        };
+      {
+        trigger: experienceRef.value,
+        start: 'clamp(top 85% bottom 75%)',
+        end: 'clamp(top 30% bottom 75%)',
+        scrub: true
+      };
 
       const barTL = gsap.timeline({
         scrollTrigger: commonScrollTriggerProperties
@@ -92,7 +92,7 @@ export const Experience = component$((props: Props) => {
         >
           <div
             ref={experienceProgressRef}
-            class={`relative h-0 w-full rounded-md bg-blue-600 brightness-125 dark:bg-emerald-500`}
+            class={`relative h-full w-full rounded-md bg-blue-600 brightness-125 dark:bg-emerald-500`}
           ></div>
 
           <svg
