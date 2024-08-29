@@ -1,11 +1,11 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { QwikTypewriter } from '~/components';
+import { AboutSection } from '~/components/sections/about';
 
 export default component$(() => {
   return (
     <>
-      <QwikTypewriter />
+      <AboutSection />
     </>
   );
 });
