@@ -1,5 +1,6 @@
 import type { IconType } from 'react-icons';
-import { SiGithub, SiTwitter, SiLinkedin, SiGmail } from 'react-icons/si';
+import { FaTwitter } from 'react-icons/fa';
+import { SiGithub, SiLinkedin, SiGmail } from 'react-icons/si';
 import type { ClassNameValue } from 'tailwind-merge';
 
 export type TSocilaLink = {
@@ -19,7 +20,7 @@ export const socialLinks: TSocilaLink[] = [
   {
     title: 'Twitter',
     link: 'https://twitter.com/sajjat_hossain_',
-    icon: SiTwitter,
+    icon: FaTwitter,
     color: 'text-blue-500'
   },
   {
