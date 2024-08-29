@@ -1,7 +1,7 @@
 import { component$, Slot } from '@builder.io/qwik';
 import type { RequestHandler } from '@builder.io/qwik-city';
 import { Cursor, PageScrollDistance } from '~/components';
-import { SideNavbar } from '~/components/side-navbar';
+import { SideNavbar } from '~/integrations/react';
 
 export const onGet: RequestHandler = async (/* { cacheControl } */) => {
   // Control caching for this request for best performance and to reduce hosting costs:
