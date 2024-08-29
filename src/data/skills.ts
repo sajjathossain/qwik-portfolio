@@ -18,7 +18,7 @@ import { VscSymbolMethod } from 'react-icons/vsc';
 import { FaReact } from 'react-icons/fa';
 import { RiNextjsFill } from 'react-icons/ri';
 import type { IconType } from 'react-icons';
-import type { ClassValue } from 'class-variance-authority/types';
+import type { ClassValue } from 'class-variance-authority/dist/types';
 
 export type TSkill = {
   title: string;
