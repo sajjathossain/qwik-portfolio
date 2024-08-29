@@ -7,8 +7,8 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   // https://qwik.dev/docs/caching/
   if (process.env.NODE_ENV === 'production') {
     cacheControl({
-      // Always serve a cached response by default, up to a week stale
-      staleWhileRevalidate: 60 * 60 * 24 * 7,
+      // Always serve a cached response by default, up to an hour stale
+      staleWhileRevalidate: 60 * 60,
       // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
       maxAge: 5
     });
