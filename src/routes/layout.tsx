@@ -23,7 +23,7 @@ export default component$(() => {
       <Cursor />
       {/* <TopNavbar client:idle /> */}
       <SideNavbar />
-      <main class="flex flex-col items-center">
+      <main class="relative flex  w-full flex-col items-center justify-center px-1 md:px-0">
         <Slot />
       </main>
     </>
