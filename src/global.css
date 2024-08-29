@@ -28,6 +28,11 @@ html.dark {
   --pagefind-ui-tag: #072448;
 }
 
+html::-webkit-scrollbar {
+  --ms-overflow-style: none;
+  display: none;
+}
+
 .pagefind-ui__drawer {
   z-index: 10;
 }
