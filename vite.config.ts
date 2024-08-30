@@ -50,6 +50,14 @@ export default defineConfig(({ command, mode }): UserConfig => {
     //         external: Object.keys(dependencies),
     //       }
     //     : undefined,
+    build: {
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        }
+      },
+      minify: true
+    },
     server: {
       port: 3000,
       open: true,
