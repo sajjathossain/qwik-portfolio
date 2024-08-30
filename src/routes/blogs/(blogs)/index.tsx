@@ -17,14 +17,11 @@ export const useLoadData = routeLoader$(async () => {
       frontmatter: TFrontmatterSchema;
     };
     const parsed = frontmatterSchema.parse(res.frontmatter);
-    const slug = parsed.title
-      .replace(/[^a-zA-Z0-9]/g, '-')
-      .replace(/-$/, '')
-      .toLowerCase();
+    const folderName = imp.split('/').at(-2);
 
     blogs.push({
       ...parsed,
-      slug
+      slug: folderName || ''
     });
   }
 
