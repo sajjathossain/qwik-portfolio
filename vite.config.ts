@@ -56,7 +56,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
           drop_console: true,
         }
       },
-      minify: true
+      minify: "terser"
     },
     server: {
       port: 3000,
