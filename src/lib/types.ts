@@ -10,11 +10,16 @@ const blogSchema = z.object({
 
 export type TBlogSchema = z.infer<typeof blogSchema>;
 
-const documentHeadSchema = z.object({
+export const frontmatterSchema = z.object({
   title: z.string(),
   meta: z.string().optional(),
   image: z.string().optional(),
+  pubDate: z.date(),
   tags: z.string().array().optional(),
-}).merge(blogSchema);
+})
+
+export type TFrontmatterSchema = z.infer<typeof frontmatterSchema>;
+
+const documentHeadSchema = frontmatterSchema.merge(blogSchema);
 
 export type TDocumentHeadSchema = z.infer<typeof documentHeadSchema>;
