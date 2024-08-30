@@ -61,6 +61,6 @@ export const Cursor = component$(() => {
     <div
       ref={cursor}
       class="pointer-events-none fixed z-[9999] hidden h-14 w-14 rounded-full bg-gray-800 mix-blend-difference dark:bg-emerald-200 md:block"
-    ></div>
+    />
   );
 });
