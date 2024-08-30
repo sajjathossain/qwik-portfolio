@@ -1,9 +1,11 @@
 import { getPublicAssetPath } from '@/lib/get-asset-path';
 import { component$ } from '@builder.io/qwik';
 import { QwikTypewriter } from '~/components/animations';
+import { GridAnimation } from '~/components/animations/grid';
 import { Reveal } from '~/components/animations/reveal';
 import { Container } from '~/components/container';
 import { Section } from '~/components/section';
+import { cn } from '~/lib/utils';
 
 const profilePicture = getPublicAssetPath({
   filename: 'profile',
@@ -20,22 +22,25 @@ export const AboutSection = component$(() => {
     <Container>
       <Section id="about">
         <div class="my-auto flex h-full w-full flex-col-reverse items-center justify-center gap-12 md:flex-row">
-          <div class="grow-cursor flex w-full flex-col items-center justify-between gap-2 md:items-start md:gap-0">
-            <QwikTypewriter />
-            <div class="mt-2 flex w-full flex-col items-center gap-1 pr-2 text-center text-sm md:items-start md:pr-0 md:text-start md:text-base">
-              {descriptions.map((description) => (
-                <Reveal key={description}>
-                  <p class="text-slate-400">{description}</p>
-                </Reveal>
-              ))}
+          <div class="relative grid w-full place-items-center  md:h-full">
+            <div class="grow-cursor absolute z-10 flex w-full flex-col items-center justify-between gap-2  md:items-start md:gap-0">
+              <QwikTypewriter />
+              <div class="mt-2 flex w-full flex-col items-center gap-1 pr-2 text-center text-sm md:items-start md:pr-0 md:text-start md:text-base">
+                {descriptions.map((description) => (
+                  <Reveal key={description}>
+                    <p class="text-slate-400">{description}</p>
+                  </Reveal>
+                ))}
+              </div>
             </div>
+            <GridAnimation classes={cn('relative md:ml-20')} />
           </div>
           <img
             src={profilePicture}
             alt="Profile picture"
             width={200}
             height={200}
-            class="aspect-square w-52 rounded-xl outline outline-2 outline-offset-4 outline-slate-700 md:w-64 md:rounded-full"
+            class="z-10 aspect-square w-52 rounded-xl outline outline-2 outline-offset-4 outline-slate-700 md:w-64 md:rounded-full "
           />
         </div>
       </Section>
