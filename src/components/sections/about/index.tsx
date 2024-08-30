@@ -33,7 +33,7 @@ export const AboutSection = component$(() => {
                 ))}
               </div>
             </div>
-            <GridAnimation classes={cn('relative hidden md:flex md:ml-20')} />
+            <GridAnimation classes={cn('relative hidden md:flex z-0')} />
           </div>
           <img
             src={profilePicture}
