@@ -78,8 +78,8 @@ export const QwikTypewriter = component$(() => {
             text: tech,
             opacity: 1,
             duration: 1,
-            ease: 'power1.inOut',
-            y: '-1vh'
+            ease: 'power1.inOut'
+            /* y: '-1vh' */
           })
           .eventCallback('onComplete', () => {
             if (idx === techs.length - 1) {
