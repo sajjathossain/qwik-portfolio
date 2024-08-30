@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const blogSchema = z.object({
+export const blogSchema = z.object({
   description: z.string().optional(),
   pubDate: z.date(),
   image: z.string(),
@@ -14,7 +14,7 @@ export const frontmatterSchema = z.object({
   title: z.string(),
   meta: z.string().optional(),
   image: z.string().optional(),
-  pubDate: z.date(),
+  pubDate: z.string().or(z.date()),
   tags: z.string().array().optional(),
 })
 
