@@ -1,3 +1,4 @@
+export * from './custom-breadcrumb';
 export * from './hooks';
 export * from './section';
 export * from './side-navbar';
