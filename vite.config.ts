@@ -51,12 +51,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
     //       }
     //     : undefined,
     build: {
-      terserOptions: {
-        compress: {
-          drop_console: true,
-        }
-      },
-      minify: "terser"
+      minify: "esbuild"
     },
     server: {
       port: 3000,
