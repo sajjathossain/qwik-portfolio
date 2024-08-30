@@ -24,7 +24,7 @@ export default component$(() => {
       <Cursor />
       <QwikTopNavbar />
       <SideNavbar />
-      <main class="relative flex  w-full flex-col items-center justify-center px-1 md:px-0">
+      <main class="relative flex w-full flex-col items-center justify-center">
         <Slot />
       </main>
     </>
