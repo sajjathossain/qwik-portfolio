@@ -16,7 +16,6 @@ const GridDots = component$(() => {
       const target = document.querySelector('html');
       if (!target) return;
       const width = target.clientWidth;
-      console.log({ width, target });
       if (width <= 768) {
         colsRef.value = 15;
         rowsRef.value = 25;
