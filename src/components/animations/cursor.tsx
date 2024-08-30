@@ -60,7 +60,7 @@ export const Cursor = component$(() => {
   return (
     <div
       ref={cursor}
-      class="pointer-events-none fixed z-[9999] hidden aspect-square h-10 rounded-full bg-emerald-300 mix-blend-difference md:block"
+      class="pointer-events-none fixed z-[9999] hidden aspect-square h-10 rounded-full  bg-gray-200/30 mix-blend-plus-lighter blur-[2px] md:block"
     />
   );
 });
