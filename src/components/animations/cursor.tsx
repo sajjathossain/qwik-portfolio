@@ -17,8 +17,8 @@ export const Cursor = component$(() => {
     gsap.to(cursor.value, {
       x: `${x - 24}px`,
       y: `${y - 24}px`,
-      duration: 0.15,
-      ease: 'none'
+      duration: 0.1,
+      ease: 'sine.in'
     });
   });
 
@@ -60,7 +60,7 @@ export const Cursor = component$(() => {
   return (
     <div
       ref={cursor}
-      class="pointer-events-none fixed z-[9999] hidden h-14 w-14 rounded-full bg-gray-800 mix-blend-difference dark:bg-emerald-200 md:block"
+      class="pointer-events-none fixed z-[9999] hidden aspect-square h-10 rounded-full bg-emerald-300 mix-blend-difference md:block"
     />
   );
 });
