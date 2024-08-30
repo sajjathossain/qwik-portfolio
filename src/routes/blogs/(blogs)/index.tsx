@@ -1,27 +1,34 @@
 import { component$ } from '@builder.io/qwik';
-import { readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { blogsDir } from './[slug]/index@markdown';
-import matter from 'gray-matter';
 import { Container } from '~/components/container';
 import type { TBreadcrumbList } from '~/integrations/react';
 import { QwikBreadcrumb } from '~/integrations/react';
 import { BlogCard } from '~/components/blog/card';
-import { frontmatterSchema } from '~/lib/types';
+import { frontmatterSchema, type TFrontmatterSchema } from '~/lib/types';
 import { routeLoader$ } from '@builder.io/qwik-city';
+type TBlog = TFrontmatterSchema & { slug: string };
+
+export const blogsDir = 'src/contents/blogs';
 
 export const useLoadData = routeLoader$(async () => {
-  const blogPaths = readdirSync(join(blogsDir));
+  const pathImports = import.meta.glob('/src/routes/blogs/**/index.md');
 
-  const blogs = blogPaths.map((p) => {
-    const buffer = readFileSync(join(blogsDir, p));
-    const fileContent = matter(buffer);
-    const parsed = frontmatterSchema.parse(fileContent.data);
-    return {
-      ...parsed,
-      slug: p.replace('.md', '').replace(' ', '-').toLowerCase()
+  const blogs: TBlog[] = [];
+
+  for (const imp in pathImports) {
+    const res = (await pathImports[imp]()) as {
+      frontmatter: TFrontmatterSchema;
     };
-  });
+    const parsed = frontmatterSchema.parse(res.frontmatter);
+    const slug = parsed.title
+      .replace(/[^a-zA-Z0-9]/g, '-')
+      .replace(/-$/, '')
+      .toLowerCase();
+
+    blogs.push({
+      ...parsed,
+      slug
+    });
+  }
 
   return blogs;
 });

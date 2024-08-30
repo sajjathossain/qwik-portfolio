@@ -1,9 +1,9 @@
 import { component$, Slot } from '@builder.io/qwik';
 import { useDocumentHead, type RequestHandler } from '@builder.io/qwik-city';
 import type { TDocumentHeadSchema } from '~/lib/types';
-import LayoutBlog from './layout-blog';
 import type { TBreadcrumbList } from '~/integrations/react';
 import { QwikBreadcrumb } from '~/integrations/react';
+import LayoutBlog from '~/routes/blogs/(blogs)/layout';
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -21,7 +21,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   const document = useDocumentHead<TDocumentHeadSchema>();
   const { frontmatter } = document;
-  if (!frontmatter.tags) return null;
 
   const breadcrumbList: TBreadcrumbList = [
     {
@@ -34,13 +33,15 @@ export default component$(() => {
     }
   ];
 
+  const date = new Date(frontmatter.pubDate);
+
   return (
     <>
       <LayoutBlog>
         <div class="relative grid  h-fit w-full gap-2 border-b-2 border-slate-800 pb-3 pt-0 md:w-[65vw] md:pt-4">
           <img
             class="h-[200px] w-full rounded-none object-cover md:rounded-sm"
-            src={`/public/assets/blogs/${frontmatter.image}?url`}
+            src={`/assets/blogs/${frontmatter.image}?url`}
             width={250}
             height={250}
             alt={frontmatter.title}
@@ -50,8 +51,8 @@ export default component$(() => {
             {document.title}
           </h1>
           <div class="flex flex-wrap items-center justify-between gap-2 px-2 text-sm text-gray-400 md:px-0">
-            <time dateTime={new Date(frontmatter.pubDate).toISOString()}>
-              {new Date(frontmatter.pubDate).toLocaleDateString(undefined, {
+            <time dateTime={date.toISOString()}>
+              {date.toLocaleDateString(undefined, {
                 dateStyle: 'medium',
                 timeZone: 'UTC'
               })}

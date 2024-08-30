@@ -18,7 +18,6 @@ export default component$(() => {
   return (
     <>
       <main class="relative flex  w-full flex-col items-center justify-center px-1 md:px-0">
-        <h1>This is blogs layout</h1>
         <Slot />
       </main>
     </>
