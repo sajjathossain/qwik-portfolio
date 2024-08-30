@@ -8,7 +8,7 @@ const GridDots = component$(() => {
   let index = 0;
 
   const colsRef = useSignal<number>(25);
-  const rowsRef = useSignal<number>(25);
+  const rowsRef = useSignal<number>(35);
 
   useOnWindow(
     'DOMContentLoaded',
@@ -63,12 +63,12 @@ const GridDots = component$(() => {
       dots.push(
         <div
           key={`${i}-${j}`}
-          class="group cursor-crosshair rounded-full p-1 transition-colors hover:bg-slate-600 md:p-2"
+          class="group cursor-crosshair rounded-full p-1 transition-colors hover:bg-slate-600"
           data-index={index}
           onClick$={handleClick}
         >
           <div
-            class="grid-dot aspect-square w-1 rounded-full bg-gradient-to-b from-slate-700/75 to-slate-400/75 opacity-50 group-hover:from-emerald-600 group-hover:to-emerald-300 md:w-2"
+            class="grid-dot aspect-square w-1.5 rounded-full bg-gradient-to-b from-slate-700/75 to-slate-400/75 opacity-50 group-hover:from-emerald-600 group-hover:to-emerald-300"
             data-index={index}
           />
         </div>
@@ -78,12 +78,7 @@ const GridDots = component$(() => {
   }
 
   return (
-    <div
-      ref={gridRef}
-      class={cn(
-        `grid w-fit grid-cols-[repeat(25,1fr)] md:grid-cols-[repeat(25,1fr)]`
-      )}
-    >
+    <div ref={gridRef} class={cn(`grid w-fit grid-cols-[repeat(35,1fr)]`)}>
       {dots}
     </div>
   );
@@ -93,7 +88,12 @@ export const GridAnimation = component$((props: { classes?: ClassValue }) => {
   const { classes } = props;
 
   return (
-    <div class={cn('relative grid h-full w-full place-items-center', classes)}>
+    <div
+      class={cn(
+        'relative grid h-full w-full cursor-crosshair place-items-center blur-[3px] brightness-75',
+        classes
+      )}
+    >
       <GridDots />
     </div>
   );
