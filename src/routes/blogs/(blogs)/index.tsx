@@ -7,8 +7,6 @@ import { frontmatterSchema, type TFrontmatterSchema } from '~/lib/types';
 import { routeLoader$ } from '@builder.io/qwik-city';
 type TBlog = TFrontmatterSchema & { slug: string };
 
-export const blogsDir = 'src/contents/blogs';
-
 export const useLoadData = routeLoader$(async () => {
   const pathImports = import.meta.glob('/src/routes/blogs/**/index.md');
 
