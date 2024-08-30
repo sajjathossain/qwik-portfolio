@@ -21,7 +21,7 @@ export const BlogCard = component$((props: Props) => {
         width={250}
         height={250}
         class="h-56 w-full rounded-t-sm object-cover"
-        src={`/public/assets/blogs/${image}?url`}
+        src={`/assets/blogs/${image}?url`}
         alt={slug}
       />
       <div class="grid h-fit gap-3 px-3 py-4 md:gap-2">
