@@ -9,11 +9,10 @@ import { gsap } from 'gsap';
 
 type Props = {
   width?: '100%' | 'fit-content';
-  id?: string;
 };
 
 export const Reveal = component$((props: Props) => {
-  const { width = 'fit-content', id = '' } = props;
+  const { width = 'fit-content' } = props;
   const target = useSignal<HTMLDivElement>();
   const child = useSignal<HTMLDivElement>();
   const overlay = useSignal<HTMLDivElement>();
@@ -59,7 +58,7 @@ export const Reveal = component$((props: Props) => {
 
   return (
     <div ref={target}>
-      <div id={id} class="relative h-fit overflow-hidden" style={{ width }}>
+      <div class="relative h-fit overflow-hidden" style={{ width }}>
         <div
           ref={overlay}
           class="absolute inset-0 bottom-0 left-0 right-0 top-0 z-10 h-full bg-blue-500 dark:bg-emerald-500"
