@@ -38,7 +38,7 @@ export const CustomBreadcrumb: FC<Props> = (props) => {
         {list.map(({ title, href }, idx) => {
           if (idx === lastItemIndex) {
             return (
-              <BreadcrumbItem>
+              <BreadcrumbItem key={title}>
                 <BreadcrumbPage>{title}</BreadcrumbPage>
               </BreadcrumbItem>
             );
@@ -46,7 +46,7 @@ export const CustomBreadcrumb: FC<Props> = (props) => {
 
           return (
             <>
-              <BreadcrumbItem>
+              <BreadcrumbItem key={title}>
                 <BreadcrumbLink href={href}>{title}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
