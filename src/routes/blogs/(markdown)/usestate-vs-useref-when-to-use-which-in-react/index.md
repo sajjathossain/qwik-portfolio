@@ -1,6 +1,6 @@
 ---
-title: 'Should you use useState or useRef?'
-description: 'This is a short tutorial on if you should use useState or useRef in React.'
+title: 'Choosing Between useState and useRef in React'
+description: 'Understand the differences between useState and useRef in React to make informed decisions on which to use based on your component’s needs and performance considerations.'
 pubDate: 2022-01-20
 tags: ['react', 'usestate', 'useref']
 image: 'should-you-use-usestate-or-useref.avif'

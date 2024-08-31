@@ -1,6 +1,6 @@
 ---
-title: 'RTK Query: Make fetching and caching data effortless.'
-description: 'This is a short tutorial on how to use Redux Toolkit Query to manage api calls and caching data.'
+title: 'Simplify Data Fetching and Caching with RTK Query'
+description: 'A quick guide on using Redux Toolkit Query for efficient API calls and data caching.'
 pubDate: 2022-10-04
 tags: ['rtk-query', 'redux-toolkit', 'react']
 image: 'rtk-query-make-fetching-and-caching-data-effortless.avif'
