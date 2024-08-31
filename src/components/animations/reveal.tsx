@@ -27,21 +27,21 @@ export const Reveal = component$((props: Props) => {
     if (!child.value || !overlay.value) return;
 
     for (const entry of entries) {
-      if (entry.isIntersecting) {
-        const revealTL = gsap.timeline();
-        revealTL
-          .to(overlay.value, {
-            left: '100%',
-            duration: 0.5,
-            ease: 'power1.in'
-          })
-          .to(child.value, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            delay: 0.25
-          });
-      }
+      if (entry.isIntersecting === false) return;
+
+      const revealTL = gsap.timeline();
+      revealTL
+        .to(overlay.value, {
+          left: '100%',
+          duration: 0.5,
+          ease: 'power1.in'
+        })
+        .to(child.value, {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: 0.25
+        });
     }
   });
 
