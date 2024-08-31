@@ -14,6 +14,7 @@ type Props = {
   classes?: string;
   resolutions?: number[];
 };
+
 export const OptimizedImage = component$((props: Props) => {
   const {
     src,
