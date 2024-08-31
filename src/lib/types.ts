@@ -12,6 +12,7 @@ export type TBlogSchema = z.infer<typeof blogSchema>;
 
 export const frontmatterSchema = z.object({
   title: z.string(),
+  description: z.string().optional(),
   meta: z.string().optional(),
   image: z.string().optional(),
   pubDate: z.string().or(z.date()),
