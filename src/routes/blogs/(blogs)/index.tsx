@@ -3,7 +3,7 @@ import { Container } from '~/components/container';
 import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import { BlogCard } from '~/components/blog/card';
 import { frontmatterSchema, type TFrontmatterSchema } from '~/lib/types';
-import { routeLoader$ } from '@builder.io/qwik-city';
+import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
 type TBlog = TFrontmatterSchema & { slug: string };
 
 export const useLoadData = routeLoader$(async () => {
@@ -69,3 +69,13 @@ export default component$(() => {
     </Container>
   );
 });
+
+export const head: DocumentHead = {
+  title: 'Sajjat Hossain | Blogs',
+  meta: [
+    {
+      name: 'description',
+      content: 'Blogs by Sajjat Hossain'
+    }
+  ]
+};
