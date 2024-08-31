@@ -28,20 +28,18 @@ const SkillsContainer = styled.div`
 
 const { row1, row2 } = skills;
 
-export const Skills = () => {
-  return (
-    <ReactSection classes="w-full h-screen" id="skills">
-      <SkillsContainer
-        className="mx-auto flex h-full w-[90dvw] items-center overflow-hidden"
-        data-skills-container
-      >
-        <div className="my-auto flex  w-full flex-col gap-8">
-          <SkillsRow skills={row1} direction="right-to-left" />
-          <SkillsRow skills={row2} direction="left-to-right" />
-        </div>
-      </SkillsContainer>
-    </ReactSection>
-  );
-};
+export const Skills = () => (
+  <ReactSection classes="w-full h-screen" id="skills">
+    <SkillsContainer
+      className="mx-auto flex h-full w-[90dvw] items-center overflow-hidden"
+      data-skills-container
+    >
+      <div className="my-auto flex  w-full flex-col gap-8">
+        <SkillsRow skills={row1} direction="right-to-left" />
+        <SkillsRow skills={row2} direction="left-to-right" />
+      </div>
+    </SkillsContainer>
+  </ReactSection>
+);
 
-export const QwikSkills = qwikify$(Skills);
+export const QwikSkills = qwikify$(Skills, { eagerness: 'visible' });
