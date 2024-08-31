@@ -4,18 +4,20 @@ import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import { BlogCard } from '~/components/blog/card';
 import { frontmatterSchema, type TFrontmatterSchema } from '~/lib/types';
 import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
-type TBlog = TFrontmatterSchema & { slug: string };
+
+export type TBlogFrontmatter = TFrontmatterSchema & { slug: string };
 
 export const useLoadData = routeLoader$(async () => {
   const pathImports = import.meta.glob('/src/routes/blogs/**/index.md');
 
-  const blogs: TBlog[] = [];
+  const blogs: TBlogFrontmatter[] = [];
 
   for (const imp in pathImports) {
     const res = (await pathImports[imp]()) as {
       frontmatter: TFrontmatterSchema;
     };
     const parsed = frontmatterSchema.parse(res.frontmatter);
+    console.log({ parsed });
     const folderName = imp.split('/').at(-2);
 
     blogs.push({
