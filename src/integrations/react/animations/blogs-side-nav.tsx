@@ -5,6 +5,7 @@ import { cn } from '~/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { getAllBlogs } from '~/routes/(blogs)/blogs';
 import type { TBlogFrontmatter } from '~/lib/types';
+import { useDeviceWidth } from '../hooks';
 
 type TMenuIconProps = {
   isOpen: boolean;
@@ -46,15 +47,19 @@ const MenuIcon: FC<TMenuIconProps> = ({ isOpen }) => {
 };
 
 const variants = {
-  open: {
-    width: '25vw',
-    height: '45vh',
+  open: (isSmallDevice: boolean) => ({
+    width: isSmallDevice ? '75vw' : '25vw',
+    height: isSmallDevice ? '55vh' : '45vh',
+    ...(isSmallDevice && {
+      minWidth: '75vw',
+      minHeight: '55vh'
+    }),
     transition: {
       type: 'spring',
       stiffness: 500,
       damping: 50
     }
-  },
+  }),
   closed: {
     height: '45px',
     width: '45px',
@@ -82,7 +87,13 @@ const liVariants = {
   }
 };
 
-const NavItems = () => {
+const NavItems = ({
+  isSmallDevice,
+  slug
+}: {
+  isSmallDevice: boolean;
+  slug: string;
+}) => {
   const [blogs, setBlogs] = useState<TBlogFrontmatter[]>([]);
 
   useEffect(() => {
@@ -93,7 +104,14 @@ const NavItems = () => {
   }, []);
 
   return (
-    <ul className="relative mt-16 flex h-fit w-full flex-col gap-2 px-3">
+    <ul
+      className={cn(
+        'relative flex h-fit w-full flex-col gap-2 overflow-y-auto px-3 pt-16 no-scrollbar',
+        {
+          'px-4 pt-5': isSmallDevice
+        }
+      )}
+    >
       {blogs.map((blog, idx) => {
         return (
           <motion.li
@@ -103,7 +121,10 @@ const NavItems = () => {
             exit={'exit'}
             custom={idx}
             key={blog.slug}
-            className="text-base text-gray-400 hover:text-gray-300"
+            className={cn('text-base text-gray-400 hover:text-gray-300', {
+              'text-emerald-600 underline underline-offset-4 hover:text-emerald-500':
+                slug === blog.slug
+            })}
           >
             <a href={`/blogs/${blog.slug}`}>
               {idx + 1}. {blog.title}
@@ -115,36 +136,54 @@ const NavItems = () => {
   );
 };
 
-export const BlogsSideNav: FC = () => {
+type Props = {
+  slug: string;
+};
+
+export const BlogsSideNav: FC<Props> = ({ slug }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { checkDevice } = useDeviceWidth();
+  const [isSmallDevice, setIsSmallDevice] = useState(false);
+
+  useEffect(() => {
+    setIsSmallDevice(checkDevice() === 'small');
+  }, []);
 
   return (
     <div
       className={cn(
-        'fixed bottom-4 right-4 top-[auto] z-20 h-fit w-fit overflow-hidden rounded-sm bg-slate-700/75 shadow-md backdrop-blur-md md:bottom-[auto] md:top-4'
+        'fixed bottom-4 right-4 top-[auto] z-20 h-fit w-fit overflow-hidden rounded-sm bg-slate-800/75 shadow-md backdrop-blur-md md:bottom-[auto] md:top-4'
       )}
     >
       <motion.div
+        custom={isSmallDevice}
         variants={variants}
         initial={variants.closed}
-        animate={isOpen ? variants.open : variants.closed}
+        animate={isOpen ? 'open' : 'closed'}
         exit={variants.closed}
       >
-        <AnimatePresence>{isOpen && <NavItems />}</AnimatePresence>
-        <motion.button
+        <AnimatePresence>
+          {isOpen && <NavItems slug={slug} isSmallDevice={isSmallDevice} />}
+        </AnimatePresence>
+
+        {isOpen && (
+          <p className="fixed bottom-2 left-4 text-xl md:top-2">Blogs</p>
+        )}
+
+        <button
           onClick={() => setIsOpen((prev) => !prev)}
-          nonce="toggle-button"
+          name="toggle-button"
           className={cn(
             'shadow-gray-400/15 fixed bottom-0 right-0 top-[auto] z-20 aspect-square overflow-hidden rounded-sm bg-slate-700/75 p-2 text-gray-400 shadow-sm hover:text-gray-300 focus:outline-none md:bottom-[auto] md:top-0'
           )}
         >
           <MenuIcon isOpen={isOpen} />
-        </motion.button>
+        </button>
       </motion.div>
     </div>
   );
 };
 
 export const QwikBlogsSideNav = qwikify$(BlogsSideNav, {
-  eagerness: 'hover'
+  eagerness: 'load'
 });
