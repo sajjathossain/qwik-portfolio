@@ -1,4 +1,5 @@
 import { $, component$ } from '@builder.io/qwik';
+import type { ImageProps } from 'qwik-image';
 import {
   Image,
   type ImageTransformerProps,
@@ -6,17 +7,18 @@ import {
 } from 'qwik-image';
 import { cn } from '~/lib/utils';
 
-type Props = {
+type TImageProps = Partial<Omit<ImageProps, 'src' | 'class'>>;
+
+type Props = TImageProps & {
   src: string;
-  width?: number;
-  height?: number;
-  alt?: string;
   classes?: string;
   resolutions?: number[];
 };
 
 export const OptimizedImage = component$((props: Props) => {
   const {
+    layout = 'constrained',
+    objectFit = 'cover',
     src,
     width = 200,
     height = 200,
@@ -37,11 +39,11 @@ export const OptimizedImage = component$((props: Props) => {
 
   return (
     <Image
-      layout="constrained"
+      layout={layout}
       alt={alt}
       width={width}
       height={height}
-      objectFit="fill"
+      objectFit={objectFit}
       placeholder="#e6e6e6"
       src={src}
       class={cn(classes)}
