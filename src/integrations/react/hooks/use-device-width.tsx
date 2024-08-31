@@ -26,8 +26,12 @@ export const useDeviceWidth = () => {
 
   useEffect(() => {
     handleResize(setDevice);
+    window.addEventListener('DOMContentLoaded', () => handleResize(setDevice));
     window.addEventListener('resize', () => handleResize(setDevice));
     return () => {
+      window.addEventListener('DOMContentLoaded', () =>
+        handleResize(setDevice)
+      );
       window.removeEventListener('resize', () => handleResize(setDevice));
     };
   }, []);
