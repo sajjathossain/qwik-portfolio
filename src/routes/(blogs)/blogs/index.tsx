@@ -9,7 +9,7 @@ import {
 } from '~/lib/types';
 import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
 
-export const useLoadData = routeLoader$(async () => {
+export const getAllBlogs = async () => {
   const pathImports = import.meta.glob('/src/routes/**/index.md');
 
   const blogs: TBlogFrontmatter[] = [];
@@ -28,7 +28,9 @@ export const useLoadData = routeLoader$(async () => {
   }
 
   return blogs;
-});
+};
+
+export const useLoadData = routeLoader$(() => getAllBlogs());
 
 export default component$(() => {
   const data = useLoadData();
