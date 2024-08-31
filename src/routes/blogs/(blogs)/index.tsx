@@ -17,7 +17,6 @@ export const useLoadData = routeLoader$(async () => {
       frontmatter: TFrontmatterSchema;
     };
     const parsed = frontmatterSchema.parse(res.frontmatter);
-    console.log({ parsed });
     const folderName = imp.split('/').at(-2);
 
     blogs.push({
