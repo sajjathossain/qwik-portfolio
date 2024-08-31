@@ -17,14 +17,10 @@ type Props = TImageProps & {
 
 export const OptimizedImage = component$((props: Props) => {
   const {
-    layout = 'constrained',
-    objectFit = 'cover',
-    src,
-    width = 200,
-    height = 200,
-    alt = 'alt-text',
     classes,
-    resolutions = [240]
+    resolutions = [240],
+    layout = 'constrained',
+    ...rest
   } = props;
   const imageTransformer$ = $(
     ({ src, width, height }: ImageTransformerProps): string => {
@@ -40,13 +36,9 @@ export const OptimizedImage = component$((props: Props) => {
   return (
     <Image
       layout={layout}
-      alt={alt}
-      width={width}
-      height={height}
-      objectFit={objectFit}
       placeholder="#e6e6e6"
-      src={src}
       class={cn(classes)}
+      {...rest}
     />
   );
 });
