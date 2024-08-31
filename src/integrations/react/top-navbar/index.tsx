@@ -1,5 +1,5 @@
 /** @jsxImportSource react */
-import { type FC, useState, useCallback, useEffect, Fragment } from 'react';
+import { type FC, useState, useEffect, Fragment } from 'react';
 import {
   AnimatePresence,
   motion,
@@ -36,15 +36,15 @@ export const TopNavbar: FC<TProps> = ({ className }) => {
   const controls = useDragControls();
   const y = useMotionValue(0);
 
-  const toggleHeight = useCallback(() => {
+  const toggleHeight = () => {
     setIsFullHeight((prev) => !prev);
-  }, []);
+  };
 
-  const handleDragEnd = useCallback(async () => {
+  const handleDragEnd = async () => {
     if (Math.abs(y.get()) >= 100) {
       toggleHeight();
     }
-  }, [toggleHeight, y]);
+  };
 
   useEffect(() => {
     if (isMediumDevice || isLargeDevice) {
