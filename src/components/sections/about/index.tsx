@@ -1,21 +1,18 @@
-import { getPublicAssetPath } from '@/lib/get-asset-path';
 import { component$ } from '@builder.io/qwik';
 import { QwikTypewriter } from '~/components/animations';
 import { GridAnimation } from '~/components/animations/grid';
 import { Reveal } from '~/components/animations/reveal';
 import { Container } from '~/components/container';
+import { OptimizedImage } from '~/components/optimized-image';
 import { Section } from '~/components/section';
 import { cn } from '~/lib/utils';
-
-const profilePicture = getPublicAssetPath({
-  filename: 'profile',
-  type: 'jpeg'
-});
 
 const descriptions = [
   "I'm a self-taught developer who loves to code.",
   'I specialize in web technologies.'
 ];
+
+const img = '/assets/common/profile.jpeg';
 
 export const AboutSection = component$(() => {
   return (
@@ -35,12 +32,12 @@ export const AboutSection = component$(() => {
             </div>
             <GridAnimation classes={cn('relative hidden md:flex z-0')} />
           </div>
-          <img
-            src={profilePicture}
+          <OptimizedImage
             alt="Profile picture"
             width={200}
             height={200}
-            class="z-0 aspect-square w-52 rounded-xl outline outline-2 outline-offset-4 outline-slate-700 md:z-10 md:w-64 md:rounded-full "
+            src={img}
+            classes="z-0 aspect-square w-52 rounded-xl outline outline-2 outline-offset-4 outline-slate-700 md:z-10 md:w-64 md:rounded-full"
           />
         </div>
       </Section>
