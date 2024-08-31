@@ -1,21 +1,8 @@
 import { component$, Fragment, Slot } from '@builder.io/qwik';
-import { useDocumentHead, type RequestHandler } from '@builder.io/qwik-city';
+import { useDocumentHead } from '@builder.io/qwik-city';
 import type { TDocumentHeadSchema } from '~/lib/types';
 import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import { OptimizedImage } from '~/components/optimized-image';
-
-export const onGet: RequestHandler = async ({ cacheControl }) => {
-  // Control caching for this request for best performance and to reduce hosting costs:
-  // https://qwik.dev/docs/caching/
-  if (process.env.NODE_ENV === 'production') {
-    cacheControl({
-      // Always serve a cached response by default, up to an hour stale
-      staleWhileRevalidate: 60 * 60,
-      // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
-      maxAge: 5
-    });
-  }
-};
 
 export default component$(() => {
   const document = useDocumentHead<TDocumentHeadSchema>();
