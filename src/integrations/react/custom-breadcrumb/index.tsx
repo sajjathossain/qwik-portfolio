@@ -9,7 +9,7 @@ import {
   BreadcrumbSeparator
 } from '~/integrations/react/ui/breadcrumb';
 import type { ClassNameValue } from 'tailwind-merge';
-import type { FC } from 'react';
+import { Fragment, type FC } from 'react';
 import { qwikify$ } from '@builder.io/qwik-react';
 
 type TListItem = {
@@ -38,19 +38,19 @@ export const CustomBreadcrumb: FC<Props> = (props) => {
         {list.map(({ title, href }, idx) => {
           if (idx === lastItemIndex) {
             return (
-              <BreadcrumbItem key={href + '-' + idx}>
+              <BreadcrumbItem key={href}>
                 <BreadcrumbPage>{title}</BreadcrumbPage>
               </BreadcrumbItem>
             );
           }
 
           return (
-            <>
-              <BreadcrumbItem key={href + '-' + idx}>
+            <Fragment key={href}>
+              <BreadcrumbItem>
                 <BreadcrumbLink href={href}>{title}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
-            </>
+            </Fragment>
           );
         })}
       </BreadcrumbList>
