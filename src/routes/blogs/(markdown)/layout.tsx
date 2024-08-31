@@ -1,8 +1,7 @@
 import { component$, Slot } from '@builder.io/qwik';
 import { useDocumentHead, type RequestHandler } from '@builder.io/qwik-city';
 import type { TDocumentHeadSchema } from '~/lib/types';
-import type { TBreadcrumbList } from '~/integrations/react';
-import { QwikBreadcrumb } from '~/integrations/react';
+import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import LayoutBlog from '~/routes/blogs/(blogs)/layout';
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {

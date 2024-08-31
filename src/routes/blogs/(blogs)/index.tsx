@@ -1,10 +1,9 @@
 import { component$ } from '@builder.io/qwik';
 import { Container } from '~/components/container';
-import type { TBreadcrumbList } from '~/integrations/react';
+import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import { BlogCard } from '~/components/blog/card';
 import { frontmatterSchema, type TFrontmatterSchema } from '~/lib/types';
 import { routeLoader$ } from '@builder.io/qwik-city';
-import { QwikCustomBreadcrumb } from '~/components/breadcrumb';
 type TBlog = TFrontmatterSchema & { slug: string };
 
 export const useLoadData = routeLoader$(async () => {
@@ -55,7 +54,7 @@ export default component$(() => {
             </p>
           </div>
         </div>
-        <QwikCustomBreadcrumb classes="my-2" list={breadcrumbList} />
+        <QwikBreadcrumb classes="my-2" list={breadcrumbList} />
         <hr class="bg-emerald-500/35 my-2 h-[2px] md:my-4" />
         <div data-pagefind-ui></div>
       </div>
