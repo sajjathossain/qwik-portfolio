@@ -1,18 +1,16 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
-import type { TFrontmatterSchema } from '~/lib/types';
 import { OptimizedImage } from '../optimized-image';
+import type { TBlogFrontmatter } from '~/routes/blogs/(blogs)';
 
 type Props = {
-  blog: TFrontmatterSchema & {
-    slug: string;
-  };
+  blog: TBlogFrontmatter;
 };
 
 export const BlogCard = component$((props: Props) => {
   const { blog } = props;
 
-  const { pubDate, tags, image, slug, title } = blog;
+  const { pubDate, tags, image, slug, title, description } = blog;
 
   const link = `/blogs/${slug}`;
   return (
@@ -27,7 +25,7 @@ export const BlogCard = component$((props: Props) => {
       <div class="grid h-fit w-full gap-3 px-3 py-4 md:gap-2">
         <div class="grid gap-2">
           <h1 class="truncate whitespace-nowrap text-lg md:text-xl">{title}</h1>
-          {/* {description && <p class="card-description">{description}</p>} */}
+          {description && <p class="text-sm text-gray-400">{description}</p>}
 
           <div class="grid w-full grid-cols-[auto_1fr] items-center text-sm text-gray-400 md:items-center md:gap-0">
             <time
