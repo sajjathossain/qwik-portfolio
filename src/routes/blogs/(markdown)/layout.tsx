@@ -3,6 +3,7 @@ import { useDocumentHead, type RequestHandler } from '@builder.io/qwik-city';
 import type { TDocumentHeadSchema } from '~/lib/types';
 import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import LayoutBlog from '~/routes/blogs/(blogs)/layout';
+import { OptimizedImage } from '~/components/optimized-image';
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -37,13 +38,14 @@ export default component$(() => {
   return (
     <>
       <LayoutBlog>
-        <div class="relative grid  h-fit w-full gap-2 border-b-2 border-slate-800 pb-3 pt-0 md:w-[65vw] md:pt-4">
-          <img
-            class="h-[200px] w-full rounded-none object-cover md:rounded-sm"
-            src={`/assets/blogs/${frontmatter.image}?url`}
-            width={250}
+        <div class="relative grid  h-fit w-full gap-2 border-b-2 border-slate-800 p-2 py-4 md:w-[65vw] md:pt-4">
+          <OptimizedImage
+            classes="rounded-sm"
+            src={`/assets/blogs/${frontmatter.image}?jsx`}
+            width={1200}
             height={250}
             alt={frontmatter.title}
+            layout="fixed"
           />
           <QwikBreadcrumb classes="my-1 px-2" list={breadcrumbList} />
           <h1 class="px-2 text-left text-3xl font-semibold md:px-0">
