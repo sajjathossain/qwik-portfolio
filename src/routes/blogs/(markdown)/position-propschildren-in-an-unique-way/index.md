@@ -1,5 +1,6 @@
 ---
 title: 'Position props.children in an unique way'
+description: 'This is a short tutorial on how to position each children element passed into a children component via wrapping these elements/components using a component.'
 pubDate: 2022-05-23
 tags: ['props', 'children', 'react']
 image: 'position-propschildren-in-an-unique-way.avif'

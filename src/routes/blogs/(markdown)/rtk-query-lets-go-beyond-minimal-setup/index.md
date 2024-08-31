@@ -1,5 +1,6 @@
 ---
 title: "RTK Query: Let's go beyond minimal setup"
+description: 'This is a short tutorial on how to extend Redux Toolkit Query manage api calls and caching data.'
 pubDate: 2022-10-23
 tags: ['rtk-query', 'redux-toolkit', 'react']
 image: 'rtk-query-lets-go-beyond-minimal-setup.avif'

@@ -1,5 +1,6 @@
 ---
 title: 'Easiest way to store dot files using git!'
+description: 'This is a short tutorial on how to store your dot files on a git remote repository.'
 pubDate: 2021-06-03
 tags: ['git', 'dotfiles']
 image: 'easiest-way-to-store-dot-files-using-git.avif'
