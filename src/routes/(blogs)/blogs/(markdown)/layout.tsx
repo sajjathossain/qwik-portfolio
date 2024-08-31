@@ -3,6 +3,7 @@ import { useDocumentHead } from '@builder.io/qwik-city';
 import type { TDocumentHeadSchema } from '~/lib/types';
 import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import { OptimizedImage } from '~/components/optimized-image';
+import { QwikBlogsSideNav } from '~/integrations/react/animations/blogs-side-nav';
 
 export default component$(() => {
   const document = useDocumentHead<TDocumentHeadSchema>();
@@ -23,6 +24,7 @@ export default component$(() => {
 
   return (
     <Fragment>
+      <QwikBlogsSideNav />
       <div class="relative grid  h-fit w-full gap-2 border-b-2 border-slate-800 p-2 py-4 md:w-[65vw] md:pt-4">
         <OptimizedImage
           classes="rounded-sm"
@@ -53,7 +55,7 @@ export default component$(() => {
         </div>
       </div>
       <div class="w-full">
-        <div class="prose mx-auto w-full px-3 py-3 dark:prose-invert prose-h1:text-xl prose-h1:font-bold prose-p:text-justify prose-a:text-blue-600 prose-img:rounded-xl md:max-w-[65vw] md:px-0">
+        <div class="prose mx-auto w-full px-3 py-3 dark:prose-invert prose-h1:text-xl prose-h1:font-bold prose-p:text-justify prose-a:text-emerald-500 prose-img:rounded-xl md:max-w-[65vw] md:px-0">
           <Slot />
         </div>
       </div>
