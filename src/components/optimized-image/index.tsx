@@ -34,11 +34,6 @@ export const OptimizedImage = component$((props: Props) => {
   });
 
   return (
-    <Image
-      layout={layout}
-      placeholder="#e6e6e6"
-      {...rest}
-      class={cn(classes)}
-    />
+    <Image layout={layout} placeholder="blur" {...rest} class={cn(classes)} />
   );
 });
