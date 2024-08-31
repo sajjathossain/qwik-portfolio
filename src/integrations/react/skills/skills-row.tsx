@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/react */
+/** @jsxImportSource react */
 
 import type { TSkill } from '@/data/skills';
 import { type FC } from 'react';
