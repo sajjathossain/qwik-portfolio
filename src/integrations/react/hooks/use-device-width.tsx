@@ -3,40 +3,37 @@ import { useEffect, useState } from 'react';
 
 type TDevice = 'small' | 'medium' | 'large';
 
-const handleResize = (
-  setDevice: React.Dispatch<React.SetStateAction<TDevice>>
-) => {
-  if (window.innerWidth <= 768) {
-    return setDevice('small');
-  }
-
-  if (window.innerWidth < 1024) {
-    return setDevice('medium');
-  }
-
-  if (window.innerWidth > 1024) {
-    return setDevice('large');
-  }
-
-  return setDevice('large');
-};
-
 export const useDeviceWidth = () => {
   const [device, setDevice] = useState<TDevice>('large');
 
+  const checkDevice = (): TDevice => {
+    if (window.innerWidth <= 768) {
+      return 'small';
+    }
+
+    if (window.innerWidth < 1024) {
+      return 'medium';
+    }
+
+    if (window.innerWidth > 1024) {
+      return 'large';
+    }
+    return 'large';
+  };
+
   useEffect(() => {
-    handleResize(setDevice);
-    window.addEventListener('DOMContentLoaded', () => handleResize(setDevice));
-    window.addEventListener('resize', () => handleResize(setDevice));
+    window.addEventListener('DOMContentLoaded', () => setDevice(checkDevice()));
+    window.addEventListener('resize', () => setDevice(checkDevice()));
     return () => {
       window.addEventListener('DOMContentLoaded', () =>
-        handleResize(setDevice)
+        setDevice(checkDevice())
       );
-      window.removeEventListener('resize', () => handleResize(setDevice));
+      window.addEventListener('resize', () => setDevice(checkDevice()));
     };
   }, []);
 
   return {
+    checkDevice,
     device,
     isSmallDevice: device === 'small',
     isMediumDevice: device === 'medium',
