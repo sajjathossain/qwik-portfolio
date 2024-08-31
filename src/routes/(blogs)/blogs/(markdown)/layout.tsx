@@ -1,5 +1,5 @@
 import { component$, Fragment, Slot } from '@builder.io/qwik';
-import { useDocumentHead } from '@builder.io/qwik-city';
+import { useDocumentHead, useLocation } from '@builder.io/qwik-city';
 import type { TDocumentHeadSchema } from '~/lib/types';
 import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import { OptimizedImage } from '~/components/optimized-image';
@@ -7,6 +7,8 @@ import { QwikBlogsSideNav } from '~/integrations/react/animations/blogs-side-nav
 
 export default component$(() => {
   const document = useDocumentHead<TDocumentHeadSchema>();
+  const loc = useLocation();
+  const slug = loc.url.pathname.split('/').at(-2) || '';
   const { frontmatter } = document;
 
   const breadcrumbList: TBreadcrumbList = [
@@ -16,7 +18,7 @@ export default component$(() => {
     },
     {
       title: document.title,
-      href: `/${document.title}`
+      href: `/${slug}`
     }
   ];
 
@@ -24,7 +26,7 @@ export default component$(() => {
 
   return (
     <Fragment>
-      <QwikBlogsSideNav />
+      <QwikBlogsSideNav slug={slug} />
       <div class="relative grid  h-fit w-full gap-2 border-b-2 border-slate-800 p-2 py-4 md:w-[65vw] md:pt-4">
         <OptimizedImage
           classes="rounded-sm"
