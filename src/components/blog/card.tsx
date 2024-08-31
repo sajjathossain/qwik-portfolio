@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 import { OptimizedImage } from '../optimized-image';
-import type { TBlogFrontmatter } from '~/routes/blogs/(blogs)';
+import type { TBlogFrontmatter } from '~/lib/types';
 
 type Props = {
   blog: TBlogFrontmatter;

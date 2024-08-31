@@ -24,3 +24,5 @@ export type TFrontmatterSchema = z.infer<typeof frontmatterSchema>;
 const documentHeadSchema = frontmatterSchema.merge(blogSchema);
 
 export type TDocumentHeadSchema = z.infer<typeof documentHeadSchema>;
+
+export type TBlogFrontmatter = TFrontmatterSchema & { slug: string };

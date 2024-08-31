@@ -2,10 +2,12 @@ import { component$ } from '@builder.io/qwik';
 import { Container } from '~/components/container';
 import { QwikBreadcrumb, type TBreadcrumbList } from '~/integrations/react';
 import { BlogCard } from '~/components/blog/card';
-import { frontmatterSchema, type TFrontmatterSchema } from '~/lib/types';
+import {
+  type TBlogFrontmatter,
+  frontmatterSchema,
+  type TFrontmatterSchema
+} from '~/lib/types';
 import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
-
-export type TBlogFrontmatter = TFrontmatterSchema & { slug: string };
 
 export const useLoadData = routeLoader$(async () => {
   const pathImports = import.meta.glob('/src/routes/**/index.md');
