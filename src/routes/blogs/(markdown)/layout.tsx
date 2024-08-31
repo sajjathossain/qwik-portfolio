@@ -44,7 +44,7 @@ export default component$(() => {
             src={`/assets/blogs/${frontmatter.image}?jsx`}
             width={1200}
             height={250}
-            alt={frontmatter.title}
+            alt={document.title}
             layout="fixed"
           />
           <QwikBreadcrumb classes="my-1 px-2" list={breadcrumbList} />
