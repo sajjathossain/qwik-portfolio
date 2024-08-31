@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 import type { TFrontmatterSchema } from '~/lib/types';
+import { OptimizedImage } from '../optimized-image';
 
 type Props = {
   blog: TFrontmatterSchema & {
@@ -16,14 +17,22 @@ export const BlogCard = component$((props: Props) => {
   const link = `/blogs/${slug}`;
   return (
     <article class="h-fit w-full rounded-md bg-slate-800 outline outline-2 outline-emerald-500/25">
-      <img
+      <OptimizedImage
+        layout="fixed"
+        width={1000}
+        height={420}
+        classes="rounded-t-sm"
+        src={`/assets/blogs/${image}?jsx`}
+        alt={slug}
+      />
+      {/* <img
         loading="lazy"
         width={250}
         height={250}
         class="h-56 w-full rounded-t-sm object-cover"
         src={`/assets/blogs/${image}?url`}
         alt={slug}
-      />
+      /> */}
       <div class="grid h-fit gap-3 px-3 py-4 md:gap-2">
         <div class="grid gap-1 md:gap-2">
           <Link href={link}>
