@@ -13,6 +13,7 @@ const descriptions = [
 ];
 
 const img = '/assets/common/profile.jpeg';
+const image_size = 300;
 
 export const AboutSection = component$(() => {
   return (
@@ -34,8 +35,8 @@ export const AboutSection = component$(() => {
           </div>
           <OptimizedImage
             alt="Profile picture"
-            width={200}
-            height={200}
+            width={image_size}
+            height={image_size}
             src={img}
             classes="z-0 aspect-square w-52 rounded-xl outline outline-2 outline-offset-4 outline-slate-700 md:z-10 md:w-64 md:rounded-full"
           />
