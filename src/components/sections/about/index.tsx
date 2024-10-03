@@ -3,16 +3,16 @@ import { QwikTypewriter } from '~/components/animations';
 import { GridAnimation } from '~/components/animations/grid';
 import { Reveal } from '~/components/animations/reveal';
 import { Container } from '~/components/container';
-import { OptimizedImage } from '~/components/optimized-image';
 import { Section } from '~/components/section';
 import { cn } from '~/lib/utils';
+import { OptimizedImage } from '~/components/optimized-image';
 
 const descriptions = [
   "I'm a self-taught developer who loves to code.",
   'I specialize in web technologies.'
 ];
 
-const img = '/assets/common/profile.jpeg';
+const img = '/assets/common/profile.webp';
 const image_size = 300;
 
 export const AboutSection = component$(() => {
@@ -33,6 +33,7 @@ export const AboutSection = component$(() => {
             </div>
             <GridAnimation classes={cn('relative hidden md:flex z-0')} />
           </div>
+
           <OptimizedImage
             alt="Profile picture"
             width={image_size}
