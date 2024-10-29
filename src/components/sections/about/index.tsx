@@ -12,7 +12,7 @@ const descriptions = [
   'I specialize in web technologies.'
 ];
 
-const img = '/assets/common/profile.webp';
+const img = '/assets/common/profile.webp?jsx';
 const image_size = 300;
 
 export const AboutSection = component$(() => {
@@ -39,6 +39,7 @@ export const AboutSection = component$(() => {
             width={image_size}
             height={image_size}
             src={img}
+            layout="fixed"
             classes="z-0 aspect-square w-52 rounded-xl outline outline-2 outline-offset-4 outline-slate-700 md:z-10 md:w-64 md:rounded-full"
           />
         </div>
