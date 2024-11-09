@@ -8,6 +8,7 @@ import { RouterHead } from './components/router-head/router-head';
 import { isDev } from '@builder.io/qwik/build';
 
 import './global.css';
+import { QwikPartytown } from './components/partytown/partytown';
 
 export default component$(() => {
   /**
@@ -21,6 +22,7 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
+        <QwikPartytown />
         {!isDev && (
           <link
             rel="manifest"
