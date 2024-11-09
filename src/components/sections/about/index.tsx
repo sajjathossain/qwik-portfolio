@@ -1,10 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { QwikTypewriter } from '~/components/animations';
-import { GridAnimation } from '~/components/animations/grid';
-import { Reveal } from '~/components/animations/reveal';
 import { Container } from '~/components/container';
 import { Section } from '~/components/section';
-import { cn } from '~/lib/utils';
 import { OptimizedImage } from '~/components/optimized-image';
 
 const descriptions = [
@@ -25,13 +22,12 @@ export const AboutSection = component$(() => {
               <QwikTypewriter />
               <div class="mt-2 flex w-full flex-col items-center gap-1 pr-2 text-center text-sm md:items-start md:pr-0 md:text-start md:text-base">
                 {descriptions.map((description) => (
-                  <Reveal key={description}>
-                    <p class="text-slate-400">{description}</p>
-                  </Reveal>
+                  <p key={description} class="text-slate-400">
+                    {description}
+                  </p>
                 ))}
               </div>
             </div>
-            <GridAnimation classes={cn('relative hidden md:flex z-0')} />
           </div>
 
           <OptimizedImage
