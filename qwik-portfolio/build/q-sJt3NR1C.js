@@ -1,0 +1,1 @@
+import{m as l,f as e,F as s,S as t}from"./q-CByD_zVH.js";const n=()=>l(s,{children:e("main",null,{class:"relative flex  w-full flex-col items-center justify-center px-1 md:px-0"},l(t,null,3,"a9_0"),1,null)},1,"a9_1");export{n as s_6JGHHejN94A};
