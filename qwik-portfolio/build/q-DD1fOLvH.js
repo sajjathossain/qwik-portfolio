@@ -1,1 +1,0 @@
-import{_ as t}from"./q-Bn4DhCoL.js";import{c as o,q as e}from"./q-CByD_zVH.js";const a=o(e(()=>t(()=>import("./q-NDIEpui3.js"),[]),"s_HrxeGmryoKQ")),s={title:"Sajjat Hossain",meta:[{name:"description",content:"Qwik site description"}]};export{a as default,s as head};

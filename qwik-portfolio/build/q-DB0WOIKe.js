@@ -1,1 +1,0 @@
-import{f as s,l as m}from"./q-CByD_zVH.js";import{c as n}from"./q-DzDzBquk.js";const l=t=>s("h1",{class:n("mb-[2vh] text-center text-[3vh] md:mb-[4vh] md:text-[2vw]",t.classes)},null,m(e=>e.title,[t]),3,"rR_0");export{l as s_nUROfceSNPA};
