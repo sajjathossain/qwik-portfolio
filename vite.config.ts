@@ -24,7 +24,7 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
 export default defineConfig((/* { command, mode } */): UserConfig => {
   return {
-    base: process.env.NODE_ENV !== "production" ? "/" : "/",
+    // base: process.env.NODE_ENV !== "production" ? "/" : "/",
     plugins: [
       qwikCity(),
       qwikVite(),
@@ -60,7 +60,7 @@ export default defineConfig((/* { command, mode } */): UserConfig => {
     //       }
     //     : undefined,
     build: {
-      ssr: true,
+      // ssr: true,
       minify: 'esbuild'
     },
     server: {
