@@ -1,14 +1,51 @@
+type TCompany = "ITBZ Inc" | "Panshilab" | "Prayers Connect" | "Airwrk";
+type TMonth = "January" | "February" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December";
+type TYear = 2021 | 2022 | 2023 | 2024 | 2025;
+type TDurationStart = `${TMonth} ${TYear}`;
+type TDurationEnd = `${TMonth} ${TYear}` | "Present";
+type TDuration = `${TDurationStart} - ${TDurationEnd}`;
+
 export type TExperience = {
-  company: string;
+  company: TCompany;
   position: string;
   responsibilities: string[];
   technologies: string[];
-  duration: `${string} - ${string}`;
+  duration: TDuration;
   location: string;
   additionalInfo?: string;
 };
 
 export const experiences: TExperience[] = [
+  {
+    company: 'ITBZ Inc',
+    position: 'Fullstack Engineer',
+    responsibilities: [
+      "Build and maintain notification system using rabbitmq",
+      'Building APIs with Nest.js.',
+      'Building reusable UI components with react.js and typescript.',
+      'Building shareable packages using Nx.dev',
+      'Collaborating with team mates.',
+    ],
+    technologies: [
+      "nx.dev",
+      "rabbitmq",
+      "signaldb",
+      "tanstrck router",
+      "ts-pattern",
+      'jotai',
+      'material ui',
+      'nest.js',
+      'postgresql',
+      'react hook form',
+      'tanstack query',
+      'typeorm',
+      'typescript',
+      'zod'
+    ],
+    duration: 'August 2024 - Present',
+    location: 'NYC, NY, USA'
+  },
+
   {
     company: 'Panshilab',
     position: 'Fullstack Engineer',
@@ -19,19 +56,18 @@ export const experiences: TExperience[] = [
       'Collaborating with team mates.'
     ],
     technologies: [
-      'Firebase',
-      'Jotai',
-      'Material UI',
-      'Nest.js',
-      'Next.js',
-      'PostgreSQL',
-      'React Hook Form',
-      'Turbo repo',
-      'TypeORM',
-      'TypeScript',
-      'Zod'
+      'jotai',
+      'material ui',
+      'nest.js',
+      'next.js',
+      'postgresql',
+      'react hook form',
+      'turbo repo',
+      'typeorm',
+      'typescript',
+      'zod'
     ],
-    duration: 'November 2022 - Present',
+    duration: 'November 2022 - August 2024',
     location: 'NYC, NY, USA'
   },
   {
@@ -42,12 +78,12 @@ export const experiences: TExperience[] = [
       'Working with team-mates.'
     ],
     technologies: [
-      'Jest',
-      'Jotai',
-      'Material UI',
-      'Next.js',
-      'React Query',
-      'TypeScript'
+      'jest',
+      'jotai',
+      'material ui',
+      'next.js',
+      'react query',
+      'typescript'
     ],
     duration: 'November 2022 - Present',
     location: 'NYC, NY, USA'
@@ -64,17 +100,17 @@ export const experiences: TExperience[] = [
     additionalInfo:
       "I've set the repository folder structure and coding conventions. Built custom hooks and modules (e.g API handers, file handlers, etc) / utility methods. Implemented and maintained Redux Toolkit Query to handle fetching data. Implemented and maintained the Redux Toolkit store.",
     technologies: [
-      'Formik',
-      'Git/Github',
-      'Next.js',
-      'React Query',
-      'React Router DOM',
-      'React.js',
-      'Redux Toolkit Query',
-      'Redux toolkit',
-      'Tailwind CSS',
-      'TypeScript',
-      'Zustand'
+      'formik',
+      'git/github',
+      'next.js',
+      'react query',
+      'react router dom',
+      'react.js',
+      'redux toolkit query',
+      'redux toolkit',
+      'tailwind css',
+      'typescript',
+      'zustand'
     ],
     duration: 'August 2022 - June 2023',
     location: 'Dhaka, Bangladesh'
@@ -89,14 +125,14 @@ export const experiences: TExperience[] = [
       'Involved with the QA team.'
     ],
     technologies: [
-      'Jest',
-      'Jotai',
-      'Material UI',
-      'Next.js',
-      'React Query',
-      'TypeScript'
+      'jest',
+      'jotai',
+      'material ui',
+      'next.js',
+      'react query',
+      'typescript'
     ],
-    duration: 'March 2022 - November 2020',
+    duration: 'March 2022 - November 2022',
     location: 'NYC, NY, USA'
   },
   {
@@ -116,11 +152,11 @@ export const experiences: TExperience[] = [
     additionalInfo:
       'I was involved in and responsible for writing unit tests, actively working with team-mates. Wrote unit tests for the components. I was also involved with the QA team. Helped my team to unblock themselves if there was any.',
     technologies: [
-      'Github CI/CD',
-      'Jest',
-      'React-query',
-      'Sentry',
-      'Test-rail'
+      'github ci/cd',
+      'jest',
+      'react-query',
+      'sentry',
+      'test-rail'
     ],
     duration: 'October 2021 - March 2022',
     location: 'NYC, NY, USA'
