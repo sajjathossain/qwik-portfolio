@@ -30,6 +30,7 @@ export const experiences: TExperience[] = [
       "nx.dev",
       "rabbitmq",
       "signaldb",
+      "socket.io",
       "tanstrck router",
       "ts-pattern",
       'jotai',
@@ -43,7 +44,7 @@ export const experiences: TExperience[] = [
       'zod'
     ],
     duration: 'August 2024 - Present',
-    location: 'NYC, NY, USA'
+    location: 'Florida, USA'
   },
 
   {
